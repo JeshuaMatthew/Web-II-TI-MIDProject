@@ -142,7 +142,7 @@ const PostForm: React.FC<PostFormElementProps> = (props) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg font-bold text-gray-700" htmlFor="body">Post Title</label>
+          <label className="text-lg font-bold text-gray-700" htmlFor="body">Post Body</label>
           <Textarea className="rounded-lg h-[10rem]" id="body" {...register('body', { required: "Post body is required." })} ></Textarea>
           {
             errors.body && (

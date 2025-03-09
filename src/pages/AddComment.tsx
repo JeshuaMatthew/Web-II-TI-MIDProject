@@ -1,22 +1,32 @@
-import { useMutation } from "@tanstack/react-query";
-import axios from "../utils/AxiosInstance";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import RecipeForm, { Recipe } from "../components/RecipesForm";
+import { useMutation } from '@tanstack/react-query';
+import axios from '../utils/AxiosInstance';
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import CommentFrom from '../components/CommentForm';
 
-const addRecipe = async (data: Recipe) => {
-  return await axios.post("/recipes/add", data);
-};
 
-const AddRecipes = () => {
+interface Comment {
+  body : string,
+  postId : number,
+  user : {
+    id : number
+  }
+}
 
+
+const CommentAdd = async (data : Comment) =>{
+  return await axios.post("comments/add", data);
+}
+
+const AddComment = () => {
   const { mutate, isSuccess, isPending } = useMutation({
-    mutationFn: addRecipe
+    mutationFn: CommentAdd
   });
   const navigate = useNavigate();
+
   useEffect(() => {
     if (isSuccess) {
-      navigate("/recipes", { replace: true });
+      navigate("/comments", { replace: true });
     }
   }, [isSuccess]);
 
@@ -49,10 +59,10 @@ const AddRecipes = () => {
           </div>
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-6 mt-10 text-center">Add Recipe</h2>
-      <RecipeForm isEdit={false} mutateFn={mutate} />
+      <h2 className="text-2xl font-bold mb-6 mt-32 text-center">Add Comment</h2>
+      <CommentFrom isEdit={false} mutateFn={mutate} />
     </div>
-  )
+    );
 }
 
-export default AddRecipes;
+export default AddComment

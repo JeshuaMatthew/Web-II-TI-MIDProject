@@ -122,9 +122,9 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
 
     return(
         <>
-            <form className="flex flex-col space-y-5 mx-auto " onSubmit={handleSubmit(onSubmit)}>
+            <form className="flex flex-col space-y-5 mx-auto max-w-[500px] bg-gray-800 p-5 rounded-2xl" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="name">Name</label>
+                    <label className="text-lg font-bold text-white" htmlFor="name">Name</label>
                     <input className="rounded-lg" type="text" id="name" {...register('name',{required: "Name is required."})} />
                     {
                         errors.name && (
@@ -135,7 +135,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="difficulty">Difficulty</label>
+                    <label className="text-lg font-bold text-white" htmlFor="difficulty">Difficulty</label>
                     <input className="rounded-lg" type="text" id="difficulty" {...register('difficulty',{required: "Difficulty is required."})} />
                     {
                         errors.difficulty && (
@@ -145,7 +145,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="prepTimeMinutes">Preparation Time</label>
+                    <label className="text-lg font-bold text-white" htmlFor="prepTimeMinutes">Preparation Time</label>
                     <div className="flex">
                         <input className="rounded-l-lg w-full" type="number" id="prepTimeMinutes" {...register('prepTimeMinutes',{required: "Preparation time is required."})} />
                         <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-r-md border border-r-0 border-gray-300">
@@ -159,7 +159,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                     }
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="cookTimeMinutes">Cooking Time</label>
+                    <label className="text-lg font-bold text-white" htmlFor="cookTimeMinutes">Cooking Time</label>
                     <div className="flex">
                         <input className="rounded-l-lg w-full" type="number" id="cookTimeMinutes" {...register('cookTimeMinutes',{required: "Cooking Time is required."})} />
                         <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-r-md border border-r-0 border-gray-300">
@@ -175,7 +175,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 <div className="flex flex-col md:flex-row gap-3">
                     <div className="flex space-x-3">
                         <div className="flex flex-col gap-2">
-                            <label className="text-lg font-bold text-gray-700" htmlFor="servings">Servings</label>
+                            <label className="text-lg font-bold text-white" htmlFor="servings">Servings</label>
                             <input className="rounded-lg w-full" type="number" id="servings" {...register('servings',{required: "Servings amount is required."})} />
                             {
                                 errors.servings && (
@@ -185,7 +185,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <label className="text-lg font-bold text-gray-700" htmlFor="cuisine">Cuisine</label>
+                            <label className="text-lg font-bold text-white" htmlFor="cuisine">Cuisine</label>
                             <input className="rounded-lg w-full" type="text" id="cuisine" {...register('cuisine',{required: "Cuisine is required."})} />
                             {
                                 errors.cuisine && (
@@ -197,7 +197,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                     </div>
                     <div className="flex space-x-3">
                         <div className="flex flex-col gap-2">
-                            <label className="text-lg font-bold text-gray-700" htmlFor="caloriesPerServing">Cal/Serving</label>
+                            <label className="text-lg font-bold text-white" htmlFor="caloriesPerServing">Cal/Serving</label>
                             <input className="rounded-lg w-full" type="number" id="caloriesPerServing" {...register('caloriesPerServing',{required: "Cal/serving amount is required."})} />
                             {
                                 errors.caloriesPerServing && (
@@ -206,7 +206,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                             }
                         </div>
                         <div className="flex flex-col gap-2">
-                            <label className="text-lg font-bold text-gray-700" htmlFor="rating">Rating</label>
+                            <label className="text-lg font-bold text-white" htmlFor="rating">Rating</label>
                             <input className="rounded-lg w-full" type="number" id="rating" step={0.1} {...register('rating',{required: "Rating is required."})} />
                             {
                                 errors.rating && (
@@ -219,7 +219,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 
 
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="ingredients">Ingredients</label>
+                    <label className="text-lg font-bold text-white" htmlFor="ingredients">Ingredients</label>
                     <Textarea className="rounded-lg h-[10rem]" id="ingredients" {...register('ingredients',{required: "Ingredients is required."})} ></Textarea>
                     {
                         errors.ingredients && (
@@ -229,7 +229,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <label className="text-lg font-bold text-gray-700" htmlFor="instructions">Instructions</label>
+                    <label className="text-lg font-bold text-white" htmlFor="instructions">Instructions</label>
                     <Textarea className="rounded-lg h-[20rem]" id="instructions" {...register('instructions',{required: "Instructions is required."})} ></Textarea>
                     {
                         errors.instructions && (
@@ -239,7 +239,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                 </div>
                 <div className="flex space-x-3">
                     <div className="flex flex-col gap-2">
-                        <label className="text-lg font-bold text-gray-700" htmlFor="mealType">Meal Type</label>
+                        <label className="text-lg font-bold text-white" htmlFor="mealType">Meal Type</label>
                         <Textarea className="rounded-lg w-full" id="mealType" {...register('mealType',{required: "Meal type is required."})} ></Textarea>
                         {
                             errors.mealType && (
@@ -249,7 +249,7 @@ const RecipeForm: React.FC<RecipeFormElementProps> = (props) => {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <label className="text-lg font-bold text-gray-700" htmlFor="tags">Tags</label>
+                        <label className="text-lg font-bold text-white" htmlFor="tags">Tags</label>
                         <Textarea className="rounded-lg w-full" id="tags" {...register('tags',{required: "Tags is required."})} ></Textarea>
                         {
                             errors.tags && (

@@ -58,7 +58,7 @@ const EditRecipes = () => {
           </div>
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-6 mt-10">Edit Recipe</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-10 text-center">Edit Recipe</h2>
       <RecipeForm
         isEdit={true}
         mutateFn={editRecipeMutation.mutate}

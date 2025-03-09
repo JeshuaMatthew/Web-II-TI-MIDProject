@@ -41,7 +41,7 @@ const PostCard : React.FC<postData> = (post : postData) =>{
   });
   const navigate = useNavigate();
   return(
-    <div className="flex-col flex space-y-8">
+    <div className="flex-col flex space-y-8 mt-20 p-3 bg-white rounded-xl">
       <div className="flex flex-col space-y-2">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -69,7 +69,7 @@ const PostCard : React.FC<postData> = (post : postData) =>{
                 <button
                   className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                   onClick={() => {
-                    if (confirm("Are you sure want to delete this product ? ")) {
+                    if (confirm("Are you sure want to delete this post ? ")) {
                       deletePostMutation.mutate(post.id.toString());
                     }
                     return;
@@ -121,7 +121,7 @@ const PostCard : React.FC<postData> = (post : postData) =>{
 
 const PostSkeleton = () => {
   return (
-    <div className="flex-col flex space-y-8">
+    <div className="flex-col flex space-y-2 mt-20 p-3 bg-white rounded-xl ">
       <div className="flex flex-col space-y-2">
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
@@ -170,7 +170,7 @@ const Post = () => {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">Post</h2>
-          <div className="flex flex-col gap-9 mt-9">
+          <div className="flex flex-col gap-9 mt-9 h-[800px] overflow-y-scroll bg-gray-800 p-6 rounded-2xl">
             {getPostData.isFetching ? (
               Array.from({length: 4}).map(() => <PostSkeleton/>)
             )  :

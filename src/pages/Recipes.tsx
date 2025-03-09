@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "../utils/AxiosInstance";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 interface Recipe {

@@ -1,4 +1,4 @@
-import { useMutation, UseMutationResult, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "../utils/AxiosInstance";
 import { useEffect } from "react";
@@ -212,7 +212,7 @@ const RecipesDetail = () => {
   }, [deleteRecipeMutation.isSuccess]);
 
   return (
-    <div>
+    <div className="p-5">
       {getRecipeDetails.isFetching || recipe === undefined ? (
         <RecipeDetailSkeleton />
       ) : (

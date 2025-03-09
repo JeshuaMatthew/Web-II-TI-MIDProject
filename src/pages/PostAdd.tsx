@@ -64,7 +64,7 @@ const PostAdd = () => {
           </div>
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-6 mt-10">Add Post</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-10 text-center">Add Post</h2>
       <PostForm isEdit={false} mutateFn={mutate} />
     </div>
     );

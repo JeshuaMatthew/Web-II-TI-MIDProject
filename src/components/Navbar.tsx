@@ -3,10 +3,11 @@ import { BellIcon } from "@heroicons/react/16/solid"
 import { NavLink, useNavigate } from "react-router-dom"
 
 const navigation = [
-	{ name: 'Product', to: '/product', current: true },
-	{ name: 'Recipes', to: '/recipes', current: false },
-	{ name: 'Carts', to: '/carts', current: false },
-	{ name: 'Post', to: '/posts', current: false },
+	{ name: 'Product', to: '/product'},
+	{ name: 'Recipes', to: '/recipes'},
+	{ name: 'Todo', to: '/todo' },
+	{ name: 'Post', to: '/posts'},
+	{ name: 'Comments', to: '/comments'}
 ]
 
 function classNames(...classes: string[]) {
@@ -17,7 +18,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 
 	return (
-		<Disclosure as="nav" className="bg-[#403D94]">
+		<Disclosure as="nav" className="bg-gray-800 fixed w-full z-50">
 			<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 				<div className="relative flex h-16 items-center justify-between">
 					<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">

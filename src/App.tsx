@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
-import Carts from "./pages/Carts";
 import Post from "./pages/Post";
 import Product from "./pages/Product";
 import Recipes from "./pages/Recipes";
@@ -14,6 +13,12 @@ import EditRecipes from "./pages/EditRecipes";
 import AddRecipes from "./pages/AddRecipes";
 import PostAdd from "./pages/PostAdd";
 import PostEdit from "./pages/PostEdit";
+import Todo from "./pages/Todo";
+import Comments from "./pages/comments";
+import AddTodo from "./pages/AddTodo";
+import EditTodo from "./pages/EditTodo";
+import AddComment from "./pages/AddComment";
+import EditComment from "./pages/EditComment";
 
 const queryClient = new QueryClient()
 
@@ -30,10 +35,15 @@ function App() {
 			<Route path="recipes/add" element={<AddRecipes />} />
 			<Route path="product/add" element={<AddProduct />} />
 			<Route path="recipes/:id" element={<RecipesDetail />} />
+			<Route path="/todo" element={<Todo/>}/>
+			<Route path="/todo/add" element={<AddTodo/>}/>
 			<Route path="posts" element={<Post />} />
 			<Route path="posts/add" element={<PostAdd />} />
 			<Route path="posts/:id/edit" element={<PostEdit />} />
-			<Route path="carts" element={<Carts />} />
+			<Route path="/comments" element={<Comments/>}/>
+			<Route path="/todo/:id/edit" element={<EditTodo/>}/>
+			<Route path="comments/add"element={<AddComment/>} />
+			<Route path="comments/:id/edit" element={<EditComment/>}/>
 		</Route>
 	));
 	return (

@@ -2,54 +2,49 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from '../utils/AxiosInstance';
 import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import PostForm from '../components/PostForm';
+import TodoForm from '../components/TodoForm';
 
-interface postDat{
-  title : string;
-  body : string;
-  tags : string[];
-  reactions : reactionType;
-  views : number;
-  userId : number;
+
+interface Todo {
+  todo : string,
+  completed : boolean,
+  userId : number
 }
 
-interface reactionType {
-  likes: number,
-  dislikes: number
+const TodoEdit = async (data: Todo, id: string | undefined) => {
+  return await axios.put(`/todo/${id}`, data);
+};
+
+const fetchTodoDat = (id: string | undefined) => {
+  return axios.get<Todo>(`/todo/${id}`);
 }
 
+const EditTodo = () => {
+  const { id } = useParams();
 
-export const fetchPostDetail = async (id: string | undefined) => {
-  return await axios.get<postDat>(`/post/${id}`);
-};
-
-const editPost = async (data: postDat, id: string | undefined) => {
-  return await axios.put(`/posts/${id}`, data);
-};
-
-const PostEdit = () => {
   
-  const {id} = useParams();
 
-  const { mutate, isSuccess, isPending } = useMutation({
-    mutationFn: (data : postDat) => editPost(data,id)
+  const getTodoDat = useQuery({
+    queryKey: ["TodoDat", id],
+    queryFn: () => fetchTodoDat(id)
   });
 
-  const getPostData = useQuery({
-    queryKey: ["postDatDetail", id],
-    queryFn: () => fetchPostDetail(id)
-  });
 
   const navigate = useNavigate();
+
+  const editTodoMutation = useMutation({
+    mutationFn: (data: Todo) => TodoEdit(data, id)
+  });
+
   useEffect(() => {
-    if (isSuccess) {
-      navigate("/posts", { replace: true });
+    if (editTodoMutation.isSuccess) {
+      navigate("/todo", { replace: true });
     }
-  }, [isSuccess]);
+  }, [editTodoMutation.isSuccess]);
 
   return (
     <div className="relative">
-      {isPending && (
+      {editTodoMutation.isPending && (
         <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-10 flex items-center justify-center">
           <div className="flex items-center bg-white/90 px-6 py-3 rounded-lg shadow-lg">
             <span className="text-2xl mr-4 text-gray-800">Adding...</span>
@@ -61,7 +56,7 @@ const PostEdit = () => {
             >
               <circle
                 className="opacity-25"
-                cx="12"
+                cx="12"   
                 cy="12"
                 r="10"
                 stroke="currentColor"
@@ -76,10 +71,10 @@ const PostEdit = () => {
           </div>
         </div>
       )}
-      <h2 className="text-2xl font-bold mb-6 mt-10 text-center">Edit Post</h2>
-      <PostForm isEdit={true} mutateFn={mutate} defaultInputData={getPostData.data?.data}/>
+      <h2 className="text-2xl font-bold mb-6 mt-25 text-center">Edit Todo</h2>
+      <TodoForm isEdit={true} mutateFn={editTodoMutation.mutate} defaultInputData={getTodoDat.data?.data} />
     </div>
     );
 }
 
-export default PostEdit
+export default EditTodo

@@ -119,10 +119,10 @@ const PostForm: React.FC<PostFormElementProps> = (props) => {
 
   return (
     <>
-      <form className="flex flex-col space-y-5 mx-auto " onSubmit={handleSubmit(submitHandler)}>
+      <form className="flex flex-col space-y-5 mx-auto max-w-[500px] bg-gray-800 p-6 rounded-2xl" onSubmit={handleSubmit(submitHandler)}>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg font-bold text-gray-700" htmlFor="userId">User ID</label>
+          <label className="text-lg font-bold text-white" htmlFor="userId">User ID</label>
           <input className="rounded-lg" type="number" id="userId" {...register('userId', { required: "User ID is required." })} />
           {
             errors.userId && (
@@ -132,8 +132,8 @@ const PostForm: React.FC<PostFormElementProps> = (props) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg font-bold text-gray-700" htmlFor="title">Post Title</label>
-          <input className="rounded-l-lg w-full" type="text" id="title" {...register('title', { required: "Post title is required." })} />
+          <label className="text-lg font-bold text-white" htmlFor="title">Post Title</label>
+          <input className="rounded-lg w-full" type="text" id="title" {...register('title', { required: "Post title is required." })} />
           {
             errors.title && (
               <p className="text-red-500 italic">{errors.title.message}</p>
@@ -142,7 +142,7 @@ const PostForm: React.FC<PostFormElementProps> = (props) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg font-bold text-gray-700" htmlFor="body">Post Body</label>
+          <label className="text-lg font-bold text-white" htmlFor="body">Post Body</label>
           <Textarea className="rounded-lg h-[10rem]" id="body" {...register('body', { required: "Post body is required." })} ></Textarea>
           {
             errors.body && (
@@ -154,7 +154,7 @@ const PostForm: React.FC<PostFormElementProps> = (props) => {
 
 
         <div className="flex flex-col gap-2">
-          <label className="text-lg font-bold text-gray-700" htmlFor="tags">Post Tags</label>
+          <label className="text-lg font-bold text-white" htmlFor="tags">Post Tags</label>
           <Textarea className="rounded-lg h-[10rem]" id="tags" {...register('tags', { required: "Post tags is required." })} ></Textarea>
           {
             errors.tags && (

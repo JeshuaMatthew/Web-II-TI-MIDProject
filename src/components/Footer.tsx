@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="flex flex-col space-y-10 mt-4 rounded-t-2xl p-3 bg-[#403D94]">
-        <p className="bg-white w-fit py-2 px-4 rounded-2xl font-bold text-[#161653] md:text-xl text-sm">Lorem Ipsum</p>
-        <div className='flex flex-col space-y-10 md:flex-row md:mx-auto justify-between md:w-[900px]'>
+    <div className="flex flex-col space-y-10 mt-4 p-3 bg-gray-800">
+        <p className="bg-white w-fit py-2 px-4 font-bold text-gray-800 md:text-xl text-sm">Lorem Ipsum</p>
+        <div className='flex flex-col space-y-10 md:mx-auto md:flex-row justify-between md:w-[1200px]'>
           <div className='flex flex-col space-y-5 text-gray-300 text-sm order-first md:order-last'>
             <p className='text-2xl font-bold'>Sign Up Today !</p>
             <p>Sign Up</p>
